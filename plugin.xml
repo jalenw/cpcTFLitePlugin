@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-cpctflite" version="1.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cpcTFLitePlugin</name>
+    <js-module name="cpcTFLitePlugin" src="www/cpcTFLitePlugin.js">
+        <clobbers target="cpcTFLitePlugin" />
+    </js-module>
+    <platform name="ios">
+        <hook type="after_plugin_add" src="hooks/install_prerequisites.js"/>
+        
+        <config-file parent="/*" target="config.xml">
+            <feature name="cpcTFLitePlugin">
+                <param name="ios-package" value="cpcTFLitePlugin" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/cpcTFLitePlugin.m" />
+        <source-file src="src/ios/ObjectDetection/Camera Feed/CameraFeedManager.swift" />
+        <source-file src="src/ios/ObjectDetection/Camera Feed/PreviewView.swift" />
+        <source-file src="src/ios/ObjectDetection/Cells/InfoCell.swift" />
+        <source-file src="src/ios/ObjectDetection/Extensions/CVPixelBufferExtension.swift" />
+        <source-file src="src/ios/ObjectDetection/Extensions/StringExtension.swift" />
+        <source-file src="src/ios/ObjectDetection/Extensions/UIColorExtension.swift" />
+        <source-file src="src/ios/ObjectDetection/ModelDataHandler/ModelDataHandler.swift" />
+        <source-file src="src/ios/ObjectDetection/ViewControllers/InferenceViewController.swift" />
+        <source-file src="src/ios/ObjectDetection/ViewControllers/ViewController.swift" />
+        <source-file src="src/ios/ObjectDetection/Views/CurvedView.swift" />
+        <source-file src="src/ios/ObjectDetection/Views/OverlayView.swift" />
+        <source-file src="src/ios/ObjectDetection/OpencvBridge/OpenCVWrapper.h" />
+        <source-file src="src/ios/ObjectDetection/OpencvBridge/OpenCVWrapper.mm" />
+        <source-file src="src/ios/ObjectDetection/TensorFlowLiteSwift/Delegate.swift" />
+        <source-file src="src/ios/ObjectDetection/TensorFlowLiteSwift/Interpreter.swift" />
+        <source-file src="src/ios/ObjectDetection/TensorFlowLiteSwift/InterpreterError.swift" />
+        <source-file src="src/ios/ObjectDetection/TensorFlowLiteSwift/Model.swift" />
+        <source-file src="src/ios/ObjectDetection/TensorFlowLiteSwift/QuantizationParameters.swift" />
+        <source-file src="src/ios/ObjectDetection/TensorFlowLiteSwift/Tensor.swift" />
+        <source-file src="src/ios/ObjectDetection/TensorFlowLiteSwift/TensorFlowLite.swift" />
+        <source-file src="src/ios/ObjectDetection/OpencvBridge/ObjectDetection-Bridging-Header.h" />
+        <resource-file src="src/ios/ObjectDetection/Base/TensorflowSB.storyboard" />
+        <resource-file src="src/ios/ObjectDetection/Model/centernet.tflite" />
+        <resource-file src="src/ios/ObjectDetection/Model/features.txt" />
+        <resource-file src="src/ios/ObjectDetection/Model/labelmap_centernet.txt" />
+        <resource-file src="src/ios/ObjectDetection/Model/model.tflite" />
+        <framework src="src/ios/ObjectDetection/opencv2.framework" custom="true" />
+        <framework src="src/ios/ObjectDetection/TensorFlowLiteC.framework" custom="true" />
+    </platform>
+</plugin>
