@@ -1,11 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-cpctflite" version="1.0"
-    xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>cpcTFLitePlugin</name>
-    <js-module name="cpcTFLitePlugin" src="www/cpcTFLitePlugin.js">
-        <clobbers target="cpcTFLitePlugin" />
-    </js-module>
+<plugin id="cordova-plugin-cpctflite" 
+		version="1.0.0" 
+		xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+		xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>cpcTFLitePlugin</name>
+
+	<description></description>
+    <repo></repo>
+    <keywords>TFLite</keywords>
+    <license></license>
+
+    <author></author>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+    
+	<js-module name="cpcTFLitePlugin" src="www/cpcTFLitePlugin.js">
+		<clobbers target="cpcTFLitePlugin" />
+	</js-module>
     <platform name="ios">
         <hook type="after_plugin_add" src="hooks/install_prerequisites.js"/>
         
@@ -44,4 +57,89 @@
         <framework src="src/ios/ObjectDetection/opencv2.framework" custom="true" />
         <framework src="src/ios/ObjectDetection/TensorFlowLiteC.framework" custom="true" />
     </platform>
+    
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="cpcTFLitePlugin">
+				<param name="android-package" value="org.apache.cordova.cpctflite.cpcTFLitePlugin" />
+			</feature>
+		</config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+		</config-file>
+		
+		<!--要加到AndroidManifest.xml里的Activity-->
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:label="Camera Activity" android:name="com.cpc.cpctfliteandroid.activity.CameraActivity" android:theme="@style/AppTheme.ObjectDetection"></activity>
+			<activity android:label="Detector Activity" android:name="com.cpc.cpctfliteandroid.activity.DetectorActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.ObjectDetection"></activity>
+		</config-file>
+		
+		<config-file parent="/*" target="AndroidManifest.xml"></config-file>
+		<source-file src="src/android/cpcTFLitePlugin.java" target-dir="src/org/apache/cordova/cpctflite" />
+
+		<!--Activity文件-->
+		<source-file src="src/android/activity/CameraActivity.java" target-dir="src/com/cpc/cpctfliteandroid/activity" />
+		<source-file src="src/android/activity/DetectorActivity.java" target-dir="src/com/cpc/cpctfliteandroid/activity" />
+		<source-file src="src/android/activity/CameraConnectionFragment.java" target-dir="src/com/cpc/cpctfliteandroid/activity" />
+		<source-file src="src/android/activity/LegacyCameraConnectionFragment.java" target-dir="src/com/cpc/cpctfliteandroid/activity" />
+
+
+		<!--工具类文件, utils, javabean-->.
+		<source-file src="src/android/utils/mresource/MResource.java" target-dir="src/com/cpc/cpctfliteandroid/utils/mresource" />
+		
+		<source-file src="src/android/utils/customview/AutoFitTextureView.java" target-dir="src/com/cpc/cpctfliteandroid/utils/customview" />
+		<source-file src="src/android/utils/customview/OverlayView.java" target-dir="src/com/cpc/cpctfliteandroid/utils/customview" />
+		<source-file src="src/android/utils/customview/RecognitionScoreView.java" target-dir="src/com/cpc/cpctfliteandroid/utils/customview" />
+		<source-file src="src/android/utils/customview/ResultsView.java" target-dir="src/com/cpc/cpctfliteandroid/utils/customview" />
+		
+		<source-file src="src/android/utils/env/BorderedText.java" target-dir="src/com/cpc/cpctfliteandroid/utils/env" />
+		<source-file src="src/android/utils/env/ImageUtils.java" target-dir="src/com/cpc/cpctfliteandroid/utils/env" />
+		<source-file src="src/android/utils/env/Logger.java" target-dir="src/com/cpc/cpctfliteandroid/utils/env" />
+		<source-file src="src/android/utils/env/Size.java" target-dir="src/com/cpc/cpctfliteandroid/utils/env" />
+
+		<source-file src="src/android/utils/tracking/MultiBoxTracker.java" target-dir="src/com/cpc/cpctfliteandroid/utils/tracking" />
+
+		<source-file src="src/android/tflite/Detector.java" target-dir="src/com/cpc/cpctfliteandroid/tflite" />
+		<source-file src="src/android/tflite/TFLiteObjectDetectionAPIModel.java" target-dir="src/com/cpc/cpctfliteandroid/tflite" />
+
+
+		<!--layout文件-->
+		<source-file src="src/android/res/layout/tfe_od_activity_camera.xml" target-dir="res/layout"/>
+		<source-file src="src/android/res/layout/tfe_od_camera_connection_fragment_tracking.xml" target-dir="res/layout"/>
+		<source-file src="src/android/res/layout/tfe_od_layout_bottom_sheet.xml" target-dir="res/layout"/>
+
+		<!--xml文件-->
+		<source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
+		<source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
+		<source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
+		<resource-file src="src/android/res/values/strings.xml" target="res/values/strings.xml"/>
+
+		<source-file src="src/android/res/drawable/tfl2_logo.png" target-dir="res/drawable"/>
+		<source-file src="src/android/res/drawable/icn_chevron_up.png" target-dir="res/drawable"/>
+		<source-file src="src/android/res/drawable/bottom_sheet_bg.xml" target-dir="res/drawable"/>
+		<source-file src="src/android/res/drawable/ic_baseline_add.xml" target-dir="res/drawable"/>
+		<source-file src="src/android/res/drawable/ic_baseline_remove.xml" target-dir="res/drawable"/>
+		<source-file src="src/android/res/drawable/rectangle.xml" target-dir="res/drawable"/>
+		
+		<!--assets-->
+		<source-file src="src/android/assets/mobilenet_v2_ep043/model.tflite" target-dir="assets/mobilenet_v2_ep043"/>
+		<source-file src="src/android/assets/mobilenet_v2_ep043/features.txt" target-dir="assets/mobilenet_v2_ep043"/>
+		<source-file src="src/android/assets/labelmap_centernet.txt" target-dir="assets"/>
+		<source-file src="src/android/assets/centernet_kpts_ehcm_256x256.tflite" target-dir="assets"/>		
+		
+		<!--库依赖文件, jar包, aar包, so文件-->
+		
+		<!--自己的gradle文件-->
+		<framework src="src/android/lib/cpcTFLitebuild.gradle" custom="true" type="gradleReference"/>
+
+						
+		<framework src="androidx.appcompat:appcompat:1.0.0" />
+		<framework src="androidx.coordinatorlayout:coordinatorlayout:1.0.0" />
+		<framework src="com.google.android.material:material:1.0.0" />
+		<framework src="org.tensorflow:tensorflow-lite-task-vision:0.1.0" />
+
+	</platform>
 </plugin>

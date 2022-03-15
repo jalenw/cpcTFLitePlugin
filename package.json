@@ -1,14 +1,21 @@
 {
   "name": "cpctfliteplugin",
   "version": "1.0.0",
-  "description": "",
+  "description": "cpctfliteplugin v1 by Jamelia",
   "cordova": {
     "id": "cordova-plugin-cpctflite",
-    "platforms": []
+    "platforms": [
+      "android",
+      "ios"
+    ]
   },
-  "keywords": [
-    "ecosystem:cordova"
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
   ],
+  "main": "index.js",
   "author": "",
   "license": "ISC"
 }

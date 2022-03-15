@@ -1,0 +1,22 @@
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+    mavenCentral()
+    google()
+}
+
+dependencies {
+}
+
+android {
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+	defaultConfig {
+		ndk { 
+			abiFilters "arm64-v8a", "armeabi-v7a" 
+		} 
+	}
+}

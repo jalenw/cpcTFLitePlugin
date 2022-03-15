@@ -1,0 +1,15 @@
+android {
+    aaptOptions {
+        noCompress "tflite"
+    }
+}
+
+
+dependencies {
+    // Build off of nightly TensorFlow Lite
+    implementation 'org.tensorflow:tensorflow-lite:2.6.0'
+    //implementation 'org.tensorflow:tensorflow-lite-gpu:0.0.0-nightly-SNAPSHOT'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.2.1'
+    // opencv
+    implementation 'com.quickbirdstudios:opencv:4.4.0'
+}
