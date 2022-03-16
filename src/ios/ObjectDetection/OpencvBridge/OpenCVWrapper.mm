@@ -5,8 +5,8 @@
 //  Created by ITS-AppTeam on 2022/3/1.
 //  Copyright © 2022 Y Media Labs. All rights reserved.
 //
-#import "opencv2/opencv.hpp"
-#import "opencv2/imgcodecs/ios.h"
+#include "opencv2/opencv.hpp"
+#include "opencv2/imgcodecs/ios.h"
 #import "OpenCVWrapper.h"
 
 @implementation OpenCVWrapper
