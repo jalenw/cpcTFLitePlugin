@@ -54,9 +54,8 @@
         <resource-file src="src/ios/ObjectDetection/Models/features.txt" />
         <resource-file src="src/ios/ObjectDetection/Models/labelmap_centernet.txt" />
         <resource-file src="src/ios/ObjectDetection/Models/model.tflite" />
-        <framework src="src/ios/ObjectDetection/opencv2.framework" custom="true" />
+        <framework src="src/ios/ObjectDetection/opencv2.framework" embed="true" custom="true" />
         <framework src="src/ios/ObjectDetection/TensorFlowLiteC.framework" custom="true" />
-        <framework src="libc++.tbd" />
     </platform>
     
 	<platform name="android">
