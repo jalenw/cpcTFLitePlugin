@@ -112,7 +112,7 @@
 		<source-file src="src/android/res/layout/tfe_od_layout_bottom_sheet.xml" target-dir="res/layout"/>
 
 		<!--xml文件-->
-		<source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
+<!--		<source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>-->
 		<source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
 		<source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
 		<resource-file src="src/android/res/values/strings.xml" target="res/values/strings.xml"/>
