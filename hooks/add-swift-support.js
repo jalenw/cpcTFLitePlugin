@@ -147,6 +147,11 @@ module.exports = context => {
                 xcodeProject.updateBuildProperty('CLANG_CXX_LANGUAGE_STANDARD', '"gnu++14"', buildConfig.name);
                 console.log('Update IOS build setting CLANG_CXX_LANGUAGE_STANDARD to: gnu++14', 'for build configuration', buildConfig.name);
             }
+              
+            if (xcodeProject.getBuildProperty('CLANG_CXX_LIBRARY', buildConfig.name) !== '"libc++"') {
+                xcodeProject.updateBuildProperty('CLANG_CXX_LIBRARY', '"libc++"', buildConfig.name);
+                console.log('Update IOS build setting CLANG_CXX_LIBRARY to: libc++', 'for build configuration', buildConfig.name);
+            }
 
             if (typeof xcodeProject.getBuildProperty('SWIFT_VERSION', buildConfig.name) === 'undefined') {
               if (config.getPreference('UseLegacySwiftLanguageVersion', 'ios')) {
