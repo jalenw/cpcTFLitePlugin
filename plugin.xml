@@ -50,10 +50,10 @@
         <source-file src="src/ios/ObjectDetection/TensorFlowLiteSwift/TensorFlowLite.swift" />
         <source-file src="src/ios/ObjectDetection/OpencvBridge/ObjectDetection-Bridging-Header.h" />
         <resource-file src="src/ios/ObjectDetection/Base/TensorflowSB.storyboard" />
-        <resource-file src="src/ios/ObjectDetection/Model/centernet.tflite" />
-        <resource-file src="src/ios/ObjectDetection/Model/features.txt" />
-        <resource-file src="src/ios/ObjectDetection/Model/labelmap_centernet.txt" />
-        <resource-file src="src/ios/ObjectDetection/Model/model.tflite" />
+        <resource-file src="src/ios/ObjectDetection/Models/centernet.tflite" />
+        <resource-file src="src/ios/ObjectDetection/Models/features.txt" />
+        <resource-file src="src/ios/ObjectDetection/Models/labelmap_centernet.txt" />
+        <resource-file src="src/ios/ObjectDetection/Models/model.tflite" />
         <framework src="src/ios/ObjectDetection/opencv2.framework" custom="true" />
         <framework src="src/ios/ObjectDetection/TensorFlowLiteC.framework" custom="true" />
     </platform>
@@ -112,7 +112,7 @@
 		<source-file src="src/android/res/layout/tfe_od_layout_bottom_sheet.xml" target-dir="res/layout"/>
 
 		<!--xml文件-->
-<!--		<source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>-->
+		<source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
 		<source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
 		<source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
 		<resource-file src="src/android/res/values/strings.xml" target="res/values/strings.xml"/>
