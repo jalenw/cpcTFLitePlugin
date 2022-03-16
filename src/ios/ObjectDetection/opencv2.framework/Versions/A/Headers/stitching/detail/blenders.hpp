@@ -43,7 +43,7 @@
 #ifndef OPENCV_STITCHING_BLENDERS_HPP
 #define OPENCV_STITCHING_BLENDERS_HPP
 
-#if defined(NO)
+#if defined(NOO)
 #  warning Detected Apple 'NO' macro definition, it can cause build conflicts. Please, include this header before any Apple headers.
 #endif
 
@@ -64,7 +64,7 @@ class CV_EXPORTS Blender
 public:
     virtual ~Blender() {}
 
-    enum { NO, FEATHER, MULTI_BAND };
+    enum { NOO, FEATHER, MULTI_BAND };
     static Ptr<Blender> createDefault(int type, bool try_gpu = false);
 
     /** @brief Prepares the blender for blending.
