@@ -56,7 +56,6 @@
         <resource-file src="src/ios/ObjectDetection/Models/model.tflite" />
         <framework src="src/ios/ObjectDetection/opencv2.framework" custom="true" />
         <framework src="src/ios/ObjectDetection/TensorFlowLiteC.framework" custom="true" />
-        <framework src="libc++.tbd" />
     </platform>
     
 	<platform name="android">
