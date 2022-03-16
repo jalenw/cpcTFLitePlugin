@@ -128,10 +128,10 @@ module.exports = context => {
         for (configName in buildConfigs) {
           if (!COMMENT_KEY.test(configName)) {
             buildConfig = buildConfigs[configName];
-            if (parseFloat(xcodeProject.getBuildProperty('IPHONEOS_DEPLOYMENT_TARGET', buildConfig.name)) < parseFloat(IOS_MIN_DEPLOYMENT_TARGET)) {
-              xcodeProject.updateBuildProperty('IPHONEOS_DEPLOYMENT_TARGET', IOS_MIN_DEPLOYMENT_TARGET, buildConfig.name);
-              console.log('Update IOS project deployment target to:', IOS_MIN_DEPLOYMENT_TARGET, 'for build configuration', buildConfig.name);
-            }
+//            if (parseFloat(xcodeProject.getBuildProperty('IPHONEOS_DEPLOYMENT_TARGET', buildConfig.name)) < parseFloat(IOS_MIN_DEPLOYMENT_TARGET)) {
+//              xcodeProject.updateBuildProperty('IPHONEOS_DEPLOYMENT_TARGET', IOS_MIN_DEPLOYMENT_TARGET, buildConfig.name);
+//              console.log('Update IOS project deployment target to:', IOS_MIN_DEPLOYMENT_TARGET, 'for build configuration', buildConfig.name);
+//            }
 
             if (xcodeProject.getBuildProperty('ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES', buildConfig.name) !== 'YES') {
               xcodeProject.updateBuildProperty('ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES', 'YES', buildConfig.name);
