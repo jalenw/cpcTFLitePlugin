@@ -5,8 +5,16 @@
 //  Created by ITS-AppTeam on 2022/3/1.
 //  Copyright © 2022 Y Media Labs. All rights reserved.
 //
-#import <opencv2/opencv.hpp>
+#if __cplusplus && __has_include(<opencv2/imgcodecs/ios.h>)
+#import <opencv2/imgproc/types_c.h>
+#import <opencv2/core/core.hpp>
+#import <opencv2/objdetect/objdetect.hpp>
 #import <opencv2/imgcodecs/ios.h>
+#import <opencv2/core.hpp>
+#import <opencv2/highgui.hpp>
+#import <opencv2/imgproc.hpp>
+using namespace cv; using namespace std;
+#endif
 #import "OpenCVWrapper.h"
 
 @implementation OpenCVWrapper
