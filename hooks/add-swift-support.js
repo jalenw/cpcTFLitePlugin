@@ -143,10 +143,10 @@ module.exports = context => {
 //              console.log('Update IOS build setting LD_RUNPATH_SEARCH_PATHS to: @executable_path/Frameworks', 'for build configuration', buildConfig.name);
 //            }
               
-//            if (xcodeProject.getBuildProperty('CLANG_CXX_LANGUAGE_STANDARD', buildConfig.name) !== '"gnu++14"') {
-//                xcodeProject.updateBuildProperty('CLANG_CXX_LANGUAGE_STANDARD', '"gnu++14"', buildConfig.name);
-//                console.log('Update IOS build setting CLANG_CXX_LANGUAGE_STANDARD to: gnu++14', 'for build configuration', buildConfig.name);
-//            }
+            if (xcodeProject.getBuildProperty('CLANG_CXX_LANGUAGE_STANDARD', buildConfig.name) !== '"c++0x"') {
+                xcodeProject.updateBuildProperty('CLANG_CXX_LANGUAGE_STANDARD', '"c++0x"', buildConfig.name);
+                console.log('Update IOS build setting CLANG_CXX_LANGUAGE_STANDARD to: c++0x', 'for build configuration', buildConfig.name);
+            }
               
 //            if (xcodeProject.getBuildProperty('CLANG_CXX_LIBRARY', buildConfig.name) !== '"libc++"') {
 //                xcodeProject.updateBuildProperty('CLANG_CXX_LIBRARY', '"libc++"', buildConfig.name);
