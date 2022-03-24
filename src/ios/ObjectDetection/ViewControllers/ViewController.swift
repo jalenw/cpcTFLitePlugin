@@ -241,7 +241,7 @@ extension ViewController: CameraFeedManagerDelegate {
       return
     }
       
-    let featureName = self.modelDataHandler?.recognizeImage(result: result!)
+    let featureName = self.modelDataHandler?.recognizeImage(result: result!) ?? ""
       var brandName = ""
       for argument in argumentsArray {
           if(((argument as  AnyObject)["part_no"] as! String) == featureName){
@@ -268,7 +268,7 @@ extension ViewController: CameraFeedManagerDelegate {
       self.inferenceViewController?.tableView.reloadData()
 
       // Draws the bounding boxes and displays class names and confidence scores.
-      self.drawAfterPerformingCalculations(onInferences: displayResult.inferences, withImageSize: CGSize(width: CGFloat(width), height: CGFloat(height)),labelName: brandName)
+      self.drawAfterPerformingCalculations(onInferences: displayResult.inferences, withImageSize: CGSize(width: CGFloat(width), height: CGFloat(height)),labelName: brandName+":"+featureName)
     }
   }
 
