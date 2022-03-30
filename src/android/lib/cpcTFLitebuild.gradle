@@ -1,3 +1,7 @@
+repositories{
+    maven { url 'https://jitpack.io' }
+}
+
 android {
     aaptOptions {
         noCompress "tflite"
