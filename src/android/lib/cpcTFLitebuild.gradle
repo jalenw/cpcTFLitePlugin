@@ -6,6 +6,7 @@ android {
     aaptOptions {
         noCompress "tflite"
     }
+
     defaultConfig {
         ndk {
             abiFilters "armeabi-v7a"
@@ -20,6 +21,6 @@ dependencies {
     //implementation 'org.tensorflow:tensorflow-lite-gpu:0.0.0-nightly-SNAPSHOT'
     implementation 'org.tensorflow:tensorflow-lite-metadata:0.2.1'
     // opencv
-    implementation 'com.quickbirdstudios:opencv:4.5.3.0'
-    //implementation 'com.github.ctodobom:OpenCV-3.1.0-Android:-SNAPSHOT'
+    //implementation 'com.quickbirdstudios:opencv:4.5.3.0'
+    implementation 'com.github.ctodobom:OpenCV-3.1.0-Android:-SNAPSHOT'
 }

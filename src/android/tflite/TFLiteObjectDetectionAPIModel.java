@@ -45,6 +45,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
@@ -167,10 +169,14 @@ public class TFLiteObjectDetectionAPIModel implements Detector {
       final String featuresFilename,
       final float minimumConfidence)
       throws IOException {
-    if (!OpenCVLoader.initDebug())
+    if (!OpenCVLoader.initDebug()) {
+      OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_1_0, this, mLoaderCallback);
       Log.e("OpenCv", "Unable to load OpenCV");
-    else
+    }
+    else {
+      mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
       Log.d("OpenCv", "OpenCV loaded");
+    }
 
     final TFLiteObjectDetectionAPIModel d = new TFLiteObjectDetectionAPIModel();
 
@@ -288,6 +294,21 @@ public class TFLiteObjectDetectionAPIModel implements Detector {
     }
     return d;
   }
+
+private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            switch (status) {
+                case LoaderCallbackInterface.SUCCESS: {
+                }
+                break;
+                default: {
+                    super.onManagerConnected(status);
+                }
+                break;
+            }
+        }
+    };
 
   @Override
   public List<Recognition> recognizeImage(
