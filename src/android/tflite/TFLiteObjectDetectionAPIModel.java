@@ -45,8 +45,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
@@ -170,7 +168,6 @@ public class TFLiteObjectDetectionAPIModel implements Detector {
       final float minimumConfidence)
       throws IOException {
     if (!OpenCVLoader.initDebug()) {
-      OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_1_0, context, null);
       Log.e("OpenCv", "Unable to load OpenCV");
     }
     else {
