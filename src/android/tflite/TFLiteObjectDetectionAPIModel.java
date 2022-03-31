@@ -295,7 +295,7 @@ public class TFLiteObjectDetectionAPIModel implements Detector {
     return d;
   }
 
-private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+  private static BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
             switch (status) {
