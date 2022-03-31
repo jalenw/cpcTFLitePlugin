@@ -170,11 +170,10 @@ public class TFLiteObjectDetectionAPIModel implements Detector {
       final float minimumConfidence)
       throws IOException {
     if (!OpenCVLoader.initDebug()) {
-      OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_1_0, this, mLoaderCallback);
+      OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_1_0, context, null);
       Log.e("OpenCv", "Unable to load OpenCV");
     }
     else {
-      mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
       Log.d("OpenCv", "OpenCV loaded");
     }
 
@@ -294,21 +293,6 @@ public class TFLiteObjectDetectionAPIModel implements Detector {
     }
     return d;
   }
-
-  private static BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
-        @Override
-        public void onManagerConnected(int status) {
-            switch (status) {
-                case LoaderCallbackInterface.SUCCESS: {
-                }
-                break;
-                default: {
-                    super.onManagerConnected(status);
-                }
-                break;
-            }
-        }
-    };
 
   @Override
   public List<Recognition> recognizeImage(
