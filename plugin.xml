@@ -143,5 +143,6 @@
 		<framework src="com.google.android.material:material:1.0.0" />
 		<framework src="org.tensorflow:tensorflow-lite-task-vision:0.1.0" />
 
+        
 	</platform>
 </plugin>
